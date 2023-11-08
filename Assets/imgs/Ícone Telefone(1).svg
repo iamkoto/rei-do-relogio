@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 14 14">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_" data-name="Retângulo " width="14" height="14" transform="translate(311 3027)" fill="#d5a330" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Ícone_Telefone" data-name="Ícone Telefone" transform="translate(-311 -3027)" clip-path="url(#clip-path)">
+    <path id="phone-solid" d="M13.977,10.576l-.636,2.756a.85.85,0,0,1-.833.662A12.523,12.523,0,0,1,0,1.484.849.849,0,0,1,.662.652L3.418.016a.858.858,0,0,1,.978.5L5.669,3.478a.856.856,0,0,1-.246,1L3.951,5.657a9.56,9.56,0,0,0,4.361,4.361L9.517,8.547a.851.851,0,0,1,1-.245l2.967,1.272A.933.933,0,0,1,13.977,10.576Z" transform="translate(311 3027.006)" fill="#d5a330"/>
+  </g>
+</svg>

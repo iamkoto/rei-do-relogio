@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_63" data-name="Retângulo 63" width="25" height="25" transform="translate(1567 38)" fill="#fff" stroke="#fff" stroke-width="2"/>
+    </clipPath>
+  </defs>
+  <g id="Ícone_sacola" data-name="Ícone sacola" transform="translate(-1567 -38)" clip-path="url(#clip-path)">
+    <g id="shopping-bag-01" transform="translate(1566.167 37.167)">
+      <g id="Layer_2" data-name="Layer 2">
+        <path id="Caminho_92" data-name="Caminho 92" d="M13.333,14.85a5,5,0,0,1-4.908-4.017.844.844,0,0,1,1.667-.267,3.333,3.333,0,0,0,6.525,0,.844.844,0,0,1,1.667.267A5,5,0,0,1,13.333,14.85Z" fill="#d5a432" stroke="#d5a432" stroke-width="0.5"/>
+        <path id="Caminho_93" data-name="Caminho 93" d="M20.75,25.833H5.917a2.5,2.5,0,0,1-2.5-2.625L4.092,8.842a2.5,2.5,0,0,1,2.5-2.392H20.075a2.5,2.5,0,0,1,2.5,2.392l.675,14.367a2.5,2.5,0,0,1-2.5,2.625ZM6.592,8.125a.833.833,0,0,0-.833.833L5.083,23.292a.833.833,0,0,0,.833.875H20.75a.833.833,0,0,0,.833-.875L20.908,8.925a.833.833,0,0,0-.833-.833Z" fill="#d5a432" stroke="#d5a432" stroke-width="0.5"/>
+        <path id="Caminho_94" data-name="Caminho 94" d="M18.333,7.292H16.667V5.833a3.333,3.333,0,1,0-6.667,0V7.292H8.333V5.833a5,5,0,0,1,10,0Z" fill="#d5a432" stroke="#d5a432" stroke-width="0.5"/>
+      </g>
+    </g>
+  </g>
+</svg>

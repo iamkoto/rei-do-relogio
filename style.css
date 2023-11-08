@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montaga&family=Open+Sans:wght@400;500;700&display=swap');
+
+#overlay {
+    display: none;
+    background-color: #000000;
+    opacity: 0.4;
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+}
+
+.header {
+    max-width: 1920px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.header-top__logo {
+    width: 252px;
+    height: 54px;
+}
+
+.header-top__search {
+    width: 612px;
+    height: 38px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    text-indent: 15px;
+    font: normal normal 300 16px/22px Open Sans;
+    color: #43464D;
+}
+
+.header-top__login {
+    display: flex;
+    align-items: center;
+}
+
+.header-top__imgs {
+    width: 25px;
+    height: 25px;
+}
+
+.header-top__text {
+    font: normal normal 300 14px/16px Open Sans;
+}
+
+.header-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 39px;
+    background-color: #000000;
+}
+
+.header-menu__bar {
+    width: 25px;
+    height: 25px;
+}
+
+.header-menu__products {
+    display: flex;
+    align-items: center;
+    gap: 90px;
+}
+
+.header-menu__products-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 39px;
+    color: #fff;
+    text-transform: uppercase;
+    font: normal normal normal 14px/15px Montaga;
+}
+
+.header-menu__products-hover {
+    width: 15%;
+    padding: 0 20px;
+}
+
+.header-menu__products-text:hover {
+    background-color: #D5A432;
+}
+
+#header-menu__products-text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font: normal normal normal 14px/15px Montaga;
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #000000;
+    margin-top: 30px;
+    height: 190px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 15%;
+}
+
+.footer-left__logo {
+    width: 200  px;
+    height: 50px;
+}
+
+.footer-left__text {
+    font: normal normal 300 13px/18px Open Sans;
+    color: #fff;
+}
+
+.footer-text {
+    font: normal normal 300 16px/18px Open Sans;
+    color: #fff;
+}
+
+.footer-left__media {
+    display: flex;
+    gap: 7px;
+}
+
+.footer-left__media-img {
+    width: 25px;
+    height: 25px;
+}
+
+.footer-lists {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 15%;
+}
+
+.footer-title {
+    font: normal normal normal 16px/18px Montaga;
+    color: #D5A330;
+    text-transform: uppercase;
+}
+
+.footer-contact {
+    display: flex;
+    gap: 5px;
+}
+
+.footer-contact__img {
+    width: 14px;
+    height: 14px;
+}
+
+.footer-right__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu {
+    position: absolute;
+    z-index: 99;
+    background-color: #fff;
+    width: 30%;
+    left: -30%;
+    transition: ease-in-out .3s;
+}
+
+.menu.active {
+    left: 0;
+}
+
+.menu-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    height: 48px;
+    padding: 15px;
+    color: #fff;
+}
+
+.menu-title__box {
+    display: flex;
+    gap: 5px;
+}
+
+.menu-title__text {
+    font: normal normal bold 18px/15px Open Sans;
+}
+
+.menu-title__close {
+    text-decoration: underline;
+    font: normal normal 300 13px/15px Open Sans;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-bottom: solid 1px #6D6E70;
+}
+
+.menu-items__title {
+    font: normal normal bold 18px/15px Open Sans;
+    color: #41444B;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-item__text {
+    color: #6D6E70;
+    font: normal normal 300 14px/15px Open Sans;
+}
+
+.menu-item__open {
+    color: orange;
+}
+

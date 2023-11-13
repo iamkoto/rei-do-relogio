@@ -35,13 +35,14 @@
     border: 1px solid #000000;
     border-radius: 5px;
     text-indent: 15px;
-    font: normal normal 300 16px/22px Open Sans;
+    font: normal normal 300 16px/22px 'Open Sans';
     color: #43464D;
 }
 
 .header-top__login {
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 .header-top__imgs {
@@ -50,7 +51,7 @@
 }
 
 .header-top__text {
-    font: normal normal 300 14px/16px Open Sans;
+    font: normal normal 300 14px/16px 'Open Sans';
 }
 
 .header-menu {
@@ -77,39 +78,51 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 39px;
+    text-align: center;
     color: #fff;
     text-transform: uppercase;
-    font: normal normal normal 14px/15px Montaga;
+    font: normal normal normal 14px/39px Montaga;
 }
 
+
 .header-menu__products-hover {
-    width: 15%;
     padding: 0 20px;
 }
 
-.header-menu__products-text:hover {
+.header-menu__products-hover:hover {
     background-color: #D5A432;
 }
 
-#header-menu__products-text {
+#header-menu__products-text > div {
     display: flex;
     align-items: center;
     text-align: center;
     color: #fff;
     text-transform: uppercase;
-    font: normal normal normal 14px/15px Montaga;
+    font: normal normal normal 14px/39px Montaga;
     cursor: pointer;
+    padding: 0 20px;
+}
+
+
+#header-menu__products-text:hover {
+    background-color: #D5A432;
 }
 
 .footer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
     background-color: #000000;
     margin-top: 30px;
-    height: 190px;
+    padding: 40px 0;
+}
+
+@media (max-width:1025px) {
+    .footer {
+        flex-direction: column;
+    }
 }
 
 .footer-left {
@@ -120,17 +133,35 @@
 }
 
 .footer-left__logo {
-    width: 200  px;
+    width: 200px;
     height: 50px;
 }
 
+
 .footer-left__text {
-    font: normal normal 300 13px/18px Open Sans;
+    font: normal normal 300 13px/18px 'Open Sans';
     color: #fff;
 }
 
+@media (max-width:1025px) {
+    .footer-left {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .footer-left__logo {
+        width: 250px;
+        height: 51px;
+    }
+
+    .footer-left__text {
+        text-align: center;
+        font: normal normal 300 14px/17px 'Open Sans';
+    }
+}
+
 .footer-text {
-    font: normal normal 300 16px/18px Open Sans;
+    font: normal normal 300 16px/18px 'Open Sans';
     color: #fff;
 }
 
@@ -139,9 +170,16 @@
     gap: 7px;
 }
 
+
 .footer-left__media-img {
     width: 25px;
     height: 25px;
+}
+
+@media (max-width:1025px) {
+    .footer-text {
+        font: normal normal 300 14px/17px 'Open Sans';
+    }
 }
 
 .footer-lists {
@@ -150,6 +188,7 @@
     gap: 10px;
     width: 15%;
 }
+
 
 .footer-title {
     font: normal normal normal 16px/18px Montaga;
@@ -162,15 +201,40 @@
     gap: 5px;
 }
 
+@media (max-width:1025px) {
+    .footer-lists {
+        width: 100%;
+        border-bottom: 2px solid #fff;
+    }
+}
+
 .footer-contact__img {
     width: 14px;
     height: 14px;
 }
 
+
 .footer-right__content {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.footer-bottom__text {
+    color: #6D6E70;
+    font: normal normal 300 14px/18px 'Open Sans';
+}
+
+.footer-bottom__right {
+    display: flex;
+    gap: 20px;
 }
 
 .menu {
@@ -202,12 +266,12 @@
 }
 
 .menu-title__text {
-    font: normal normal bold 18px/15px Open Sans;
+    font: normal normal bold 18px/15px 'Open Sans';
 }
 
 .menu-title__close {
     text-decoration: underline;
-    font: normal normal 300 13px/15px Open Sans;
+    font: normal normal 300 13px/15px 'Open Sans';
 }
 
 .menu-items {
@@ -219,7 +283,7 @@
 }
 
 .menu-items__title {
-    font: normal normal bold 18px/15px Open Sans;
+    font: normal normal bold 18px/15px 'Open Sans';
     color: #41444B;
     text-transform: uppercase;
     margin-bottom: 15px;
@@ -232,7 +296,7 @@
 
 .menu-item__text {
     color: #6D6E70;
-    font: normal normal 300 14px/15px Open Sans;
+    font: normal normal 300 14px/15px 'Open Sans';
 }
 
 .menu-item__open {

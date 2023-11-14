@@ -29,6 +29,13 @@
     height: 54px;
 }
 
+@media (max-width:1025px) {
+    .header-top__logo {
+        width: 144px;
+        height: 31px;
+    }
+}
+
 .header-top__search {
     width: 612px;
     height: 38px;
@@ -37,6 +44,13 @@
     text-indent: 15px;
     font: normal normal 300 16px/22px 'Open Sans';
     color: #43464D;
+}
+
+@media (max-width:1025px) {
+    .header-top__search {
+        width: 340px;
+        height: 38px;
+    }
 }
 
 .header-top__login {
@@ -52,6 +66,42 @@
 
 .header-top__text {
     font: normal normal 300 14px/16px 'Open Sans';
+}
+
+.header-top__desktop {
+    display: block;
+}
+
+@media (max-width:1025px) {
+    .header-top__text {
+        display: none;
+    }
+
+    .header-top__desktop {
+        display: none;
+    }
+}
+
+.header-top__mobile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.header-top__mobile-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-top__mobile-top__left {
+    display: flex;
+    gap: 10px;
+}
+
+.header-top__mobile-top__right {
+    display: flex;
+    gap: 20px;
 }
 
 .header-menu {
@@ -74,6 +124,23 @@
     gap: 90px;
 }
 
+.deskmenu {
+    gap: 10px;
+}
+
+@media (max-width:1025px) {
+    .header-menu {
+        width: 100%;
+        overflow: scroll;
+    }
+    .header-menu__products {
+        gap: 20px;
+    }
+    .deskmenu {
+        display: none;
+    }
+}
+
 .header-menu__products-text {
     display: flex;
     justify-content: center;
@@ -81,7 +148,13 @@
     text-align: center;
     color: #fff;
     text-transform: uppercase;
-    font: normal normal normal 14px/39px Montaga;
+    font: normal normal normal 14px/39px 'Montaga';
+}
+
+@media (max-width:1025px) {
+    .header-menu__products-text {
+        font: normal normal normal 14px/15px 'Montaga';
+    }
 }
 
 
@@ -104,6 +177,11 @@
     padding: 0 20px;
 }
 
+@media (max-width:1025px) {
+    #header-menu__products-text {
+        display: none;
+    }
+}
 
 #header-menu__products-text:hover {
     background-color: #D5A432;
@@ -132,6 +210,7 @@
     width: 15%;
 }
 
+
 .footer-left__logo {
     width: 200px;
     height: 50px;
@@ -147,6 +226,8 @@
     .footer-left {
         justify-content: center;
         width: 100%;
+        padding: 10px;
+        align-items: center;
     }
 
     .footer-left__logo {
@@ -170,15 +251,17 @@
     gap: 7px;
 }
 
-
-.footer-left__media-img {
-    width: 25px;
-    height: 25px;
-}
-
 @media (max-width:1025px) {
     .footer-text {
-        font: normal normal 300 14px/17px 'Open Sans';
+        display: none;
+    }
+
+    .footer-left__media-img {
+        display: none;
+    }
+
+    .titledesk {
+        display: none;
     }
 }
 
@@ -205,6 +288,8 @@
     .footer-lists {
         width: 100%;
         border-bottom: 2px solid #fff;
+        padding: 10px;
+        gap: 0;   
     }
 }
 
@@ -217,7 +302,22 @@
 .footer-right__content {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+@media (max-width:1025px) {
+    .footer-right__content {
+        padding: 10px;
+    }
+
+    .footer-contact__img {
+        display: none;
+    }
 }
 
 .footer-bottom {
@@ -237,6 +337,45 @@
     gap: 20px;
 }
 
+.footer-left__mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    padding: 10px;
+}
+
+.footer-title__mobile {
+    font: normal normal normal 16px/18px Montaga;
+    color: #D5A330;
+    text-transform: uppercase;
+}
+
+.footer-left__media-mobile {
+    display: flex;
+    gap: 7px;
+}
+
+.footer-lists__mobile {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width:1026px) {
+    .footer-left__mobile {
+        display: none;
+    }
+    .footer-left__media-mobile {
+        display: none;
+    }
+    .footer-title__mobile {
+        display: none;
+    }
+    .footer-lists__mobile {
+        display: none;
+    }
+}
+
 .menu {
     position: absolute;
     z-index: 99;
@@ -244,6 +383,13 @@
     width: 30%;
     left: -30%;
     transition: ease-in-out .3s;
+}
+
+@media (max-width:1025px) {
+    .menu {
+        width: 90%;
+        left: -90%;
+    }
 }
 
 .menu.active {

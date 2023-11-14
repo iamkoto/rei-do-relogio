@@ -100,11 +100,13 @@
 
 .header-top__mobile-top__left {
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 
 .header-top__mobile-top__right {
     display: flex;
+    align-items: center;
     gap: 20px;
 }
 
@@ -134,10 +136,10 @@
 
 @media (max-width:1025px) {
     .header-menu {
-        width: 100%;
         overflow: scroll;
     }
     .header-menu__products {
+        width: 100%;
         gap: 20px;
     }
     .deskmenu {

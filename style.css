@@ -333,9 +333,28 @@
     padding: 20px 0;
 }
 
+@media (max-width:1025px) {
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+}
+
 .footer-bottom__text {
     color: #6D6E70;
     font: normal normal 300 14px/18px 'Open Sans';
+}
+
+@media (max-width:1025px) {
+    .footer-bottom__text {
+        text-align: center
+    }
+
+    .footer-bottom__img {
+        width: 89px;
+        height: 21px;
+    }
 }
 
 .footer-bottom__right {

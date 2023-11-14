@@ -30,6 +30,10 @@
 }
 
 @media (max-width:1025px) {
+    .header-top {
+        padding: 10px;
+    }
+
     .header-top__logo {
         width: 144px;
         height: 31px;

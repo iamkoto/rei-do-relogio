@@ -4,7 +4,7 @@ const menu = document.querySelector('.menu');
 const submenu = document.querySelector('.submenu')
 const close = document.querySelector('.menu-title__box');
 const mobileBar = document.getElementById('header-menu__bar');
-const opensubmenu = document.querySelector('.menu-item');
+const opensubmenus = document.querySelectorAll('.menu-item');
 const closesubmenu = document.querySelector('.submenu-title__box');
 const backtomenu = document.querySelector('.submenu-top');
 
@@ -23,8 +23,13 @@ mobileBar.addEventListener('click', function(){
     menu.classList.add('active');
 })
 
-opensubmenu.addEventListener('click', function() {
-    submenu.classList.add('active');
+opensubmenus.forEach((opensubmenu , index) => {
+    if (opensubsubmenu.classList.contains('childElement')) {
+        opensubmenu.target.classList.toggle('active');
+    }
+    opensubmenu.addEventListener('click', function() {
+        submenu.classList.add('active') , index;
+    })
 })
 
 closesubmenu.addEventListener('click', function() {

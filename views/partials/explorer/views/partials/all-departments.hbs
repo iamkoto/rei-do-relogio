@@ -1,0 +1,267 @@
+<div id="side-menu">
+  <div class="side-menu__header">
+    <p class="side-menu__title">Todos os Departamentos</p>
+    <div class="side-menu__close" id="side-menu__close">
+      <span class="side-menu__close--text">
+        Fechar
+      </span>
+      <p>X</p>
+    </div>
+  </div>
+  <ul>
+ 
+    <a href="/relogios_DisplayType_G" class="category-items__link">Relógios</a>
+    <li class="category-items__item">
+        <a class="category-items__href category-new__Itens" href="/relogios-masculinos_DisplayType_G">Masculinos</a>
+    </li>
+    <li class="category-items__item">
+        <a class="category-items__href category-new__Itens" href="/relogios-femininos_DisplayType_G">Femininos</a>
+    </li>
+    <li class="category-items__item">
+        <a class="category-items__href category-new__Itens" href="/relogios-smartwatches_DisplayType_G">Smartwatches</a>
+    </li>
+    <hr>
+    {{!-- Categorias 2 --}}
+    <a href="/kits_DisplayType_G" class="category-items__link">Kits</a>
+    <hr>
+    {{!-- Categorias 3 --}}
+    <a href="/marcas_DisplayType_G" class="category-items__link">Marcas</a>
+    <li class="category-items__item">
+        <a class="category-items__href category-new__Itens" href="/marcas-technos_DisplayType_G">Technos</a>
+    </li>
+    <li class="category-items__item">
+        <a class="category-items__href category-new__Itens" href="/marcas-euro_DisplayType_G">Euro</a>
+    </li>
+    <li class="category-items__item">
+        <a class="category-items__href category-new__Itens" href="/marcas-condor_DisplayType_G">Condor</a>
+    </li>
+    <li class="category-items__item">
+        <a class="category-items__href category-new__Itens" href="/marcas-mormaii_DisplayType_G">Mormaii</a>
+    </li>
+    
+  </ul>
+</div>
+
+<div id="overlay"></div>
+
+<style>
+  #overlay {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.658);
+    z-index: 9;
+  }
+
+  .side-menu__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    background-color: #000000;
+    padding: 15px 20px;
+  }
+
+  .sub-menu__list .sub-menu__title {
+    color: #000!important;
+    text-transform: uppercase;
+  }
+
+  .side-menu__title {
+    font: normal normal bold 18px/15px 'Open Sans';
+    color: #FFFFFF;
+  }
+
+  .side-menu__close {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    cursor: pointer;
+    font: normal normal 300 13px/15px 'Open Sans';
+  }
+
+  .side-menu__close--text {
+    font: normal normal 300 13px/15px 'Open Sans';
+    text-decoration: underline;
+  }
+
+  #side-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 365px;
+    height: 100%;
+    background-color: #fff;
+    transition: all 0.3s;
+    z-index: 999;
+  }
+
+  @media screen and (max-width: 1025px) {
+    #side-menu {
+      width: 90%;
+    }
+  }
+
+  #side-menu.open {
+    left: 0;
+  }
+
+  #side-menu>ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sub-menu__item,
+  .sub-menu__title {
+    border-bottom: 1px solid #ebebeb;
+    margin: 0;
+  }
+
+  #side-menu .category-items__href::after {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTciIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNyAxNyI+CiAgPGRlZnM+CiAgICA8Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aCI+CiAgICAgIDxyZWN0IGlkPSJSZXTDom5ndWxvXzI4IiBkYXRhLW5hbWU9IlJldMOibmd1bG8gMjgiIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyIgc3Ryb2tlPSIjNzA3MDcwIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDwvY2xpcFBhdGg+CiAgPC9kZWZzPgogIDxnIGlkPSJTbGlkZXIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE3IDE3KSByb3RhdGUoMTgwKSIgY2xpcC1wYXRoPSJ1cmwoI2NsaXAtcGF0aCkiPgogICAgPHBhdGggaWQ9ImNoZXZyb24tbGVmdCIgZD0iTTI1Ljc2MSwyNy45MTlsLTYuODc5LTYuODc5LDYuODc5LTYuODc5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTQuMDU5IC0xMi41NDEpIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPC9nPgo8L3N2Zz4K");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 12px;
+    cursor: pointer;
+  }
+
+  #side-menu .category-items__link,
+  .sub-menu__link,
+  .sub-menu__title {
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: ease-in-out .3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 15px 20px;
+    font: normal normal bold 18px/15px 'Open Sans';
+    color: #41444B !important;
+  }
+
+  #side-menu a:hover {
+    opacity: 0.8;
+  }
+
+  .sub-menu,
+  .sub-menu__grandchild {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    transition: ease-in-out .3s;
+  }
+
+  .sub-menu.open,
+  .sub-menu__grandchild.open {
+    left: 0;
+  }
+
+  .sub-menu__header {
+    background-color: #000;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /*.sub-menu__link {
+    font: normal normal normal 15px/16px Titillium Web;
+    margin: 20px 0;
+    color: #2C2931 !important;
+    display: block;
+  }*/
+
+  .back-btn {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    gap: 15px;
+    font: normal normal 600 16px/15px Titillium Web;
+    cursor: pointer;
+  }
+
+  .back-btn img{
+    width: 20px;
+  }
+</style>
+
+<script>
+  const openMenuButtons = document.querySelectorAll(".open-menu");
+  const sideMenu = document.querySelector("#side-menu");
+  const close = document.querySelector("#side-menu__close");
+  const background = document.querySelector("#overlay");
+  const menuItems = document.querySelectorAll(".category-items__item");
+  const subMenuItem = document.querySelectorAll(".sub-menu__item");
+  const submenuHeaders = document.querySelectorAll(".sub-menu__header--child");
+  const submenuGrandHeaders = document.querySelectorAll(".sub-menu__header--grandchild");
+  const categoryHrefSelector = ".category-items__href";
+
+  for (var i = 0; i < openMenuButtons.length; i++) {
+    openMenuButtons[i].onclick = function () {
+      sideMenu.classList.toggle("open");
+      background.style.display = "block"
+    };
+  }
+
+  close.addEventListener("click", () => {
+    sideMenu.classList.toggle("open");
+    background.style.display = "none"
+  });
+
+  for (let i = 0; i < menuItems.length; i++) {
+    const categoryHref = menuItems[i].querySelector(categoryHrefSelector);
+    if (categoryHref) {
+      categoryHref.addEventListener("click", () => {
+        const submenu = menuItems[i].querySelector(".sub-menu");
+        if (submenu) {
+          submenu.classList.add("open");
+        }
+      });
+    }
+  }
+
+  for (let i = 0; i < subMenuItem.length; i++) {
+    const categoryGrandHref = subMenuItem[i].querySelector(categoryHrefSelector);
+    if (categoryGrandHref) {
+      categoryGrandHref.addEventListener("click", () => {
+        const submenuGrand = subMenuItem[i].querySelector(".sub-menu__grandchild");
+        if (submenuGrand) {
+          submenuGrand.classList.add("open");
+        }
+      });
+    }
+  }
+
+  for (let i = 0; i < submenuHeaders.length; i++) {
+    submenuHeaders[i].addEventListener("click", () => {
+      const parentSubmenu = submenuHeaders[i].closest(".sub-menu");
+      if (parentSubmenu) {
+        parentSubmenu.classList.remove("open");
+      }
+    });
+  }
+
+  for (let i = 0; i < submenuGrandHeaders.length; i++) {
+    submenuGrandHeaders[i].addEventListener("click", () => {
+      const parentSubmenuGrand = submenuGrandHeaders[i].closest(".sub-menu__grandchild");
+      if (parentSubmenuGrand) {
+        parentSubmenuGrand.classList.remove("open");
+      }
+    });
+  }
+</script>

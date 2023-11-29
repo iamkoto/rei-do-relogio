@@ -1,48 +1,131 @@
-const bar = document.getElementById('header-menu__products-text');
-const overlay = document.getElementById('overlay');
-const menu = document.querySelector('.menu');
-const submenu = document.querySelector('.submenu')
-const close = document.querySelector('.menu-title__box');
-const mobileBar = document.getElementById('header-menu__bar');
-const opensubmenus = document.querySelectorAll('.menu-item');
-const closesubmenu = document.querySelector('.submenu-title__box');
-const backtomenu = document.querySelector('.submenu-top');
+const express = require('express');
+const http = require('http');
+const handlebars = require('express-handlebars');
+const ws = require('ws');
+const path = require('path');
+const uuid = require('uuid/v4');
+const opn = require('opn');
+const ora = require('ora');
+const chalk = require('chalk');
+const fs = require('fs');
+const sass = require('node-sass');
+const watcher = require('./lib/watch');
 
-bar.addEventListener('click', function() {
-    overlay.style.display = 'block';
-    menu.classList.add('active');
-})
+let data = require('./mock');
 
-close.addEventListener('click', function(){
-    overlay.style.display = 'none';
-    menu.classList.remove('active');
-})
+const app = express();
 
-mobileBar.addEventListener('click', function(){
-    overlay.style.display = 'block';
-    menu.classList.add('active');
-})
+const getTheme = () => {
+  const routeviews = path.join(__dirname, 'views')
+  let theme = ['views/partials/'];
+  return new Promise((resolve, reject) => {
+    fs.readdir(
+      path.resolve(routeviews, 'partials'),
+      (err, files) => {
+        if (err) reject(err);
+        const templates = files.filter(f => !f.includes('.') && f !== 'components' && f !== 'icons').map(f => `views/partials/${f}/`);
+        resolve([...theme, ...templates]);
+      }
+    );
+  });
+};
 
-opensubmenus.forEach((opensubmenu , index) => {
-    if (opensubsubmenu.classList.contains('childElement')) {
-        opensubmenu.target.classList.toggle('active');
-    }
-    opensubmenu.addEventListener('click', function() {
-        submenu.classList.add('active') , index;
+async function start() {
+  let connections = [];
+  const PORT = process.env.PORT || 3000;
+  const server = http.createServer(app);
+  const wss = new ws.Server({ server });
+  const startServerSpinner = ora('Starting server').start();
+
+  const pathThemes = await getTheme()
+
+  app.use(express.static(path.join(__dirname, 'static')));
+  app.engine(
+    'hbs',
+    handlebars({
+      extname: '.hbs',
+      partialsDir: pathThemes,
+      helpers: {
+        toJSON(object) {
+          return JSON.stringify(object);
+        },
+        concat() {
+          arguments = [...arguments].slice(0, -1);
+          return arguments.join('');
+        }
+      }
     })
-})
+  );
+  app.set('view engine', '.hbs');
 
-closesubmenu.addEventListener('click', function() {
-    overlay.style.display = 'none';
-    submenu.classList.remove('active');
-    menu.classList.remove('active');
-})
+  app.get('/', function (req, res) {
+    res.render('default', data.dataMock);
+  });
 
-backtomenu.addEventListener('click', function() {
-    submenu.classList.remove('active');
-})
+  server.listen(PORT, () => {
+    startServerSpinner.succeed(`Ready on ${chalk.cyan('http://localhost' + PORT)}`);
+    const connectionsSpinner = ora('Checking for open hotreload connections').start();
 
+    setTimeout(() => {
+      if (!connections.length) {
+        connectionsSpinner.info('0 hotreload connections found, opening a new tab');
+        opn(`http://localhost:${PORT}`);
+      } else {
+        connectionsSpinner.info(`${connections.length} hotreload connections found`);
+      }
+    }, 5500);
+  });
 
+  watcher((type, file) => {
+    console.log(`[${chalk.blue(type)}] > ${file}`);
 
+    if (file === 'mock.js') {
+      delete require.cache[require.resolve('./mock.js')];
+      data = require('./mock.js');
+    }
 
-    
+    if (file.match(/^views\/partials\/\w+\/styles\/(\w|-|\/)+\.scss$/)) {
+      const templateName = file.split('/')[2];
+      compileStyles(templateName);
+    }
+
+    for (const { socket } of connections) {
+      socket.send(`[${type}] > ${file}`);
+    }
+  });
+
+  async function compileStyles(templateName) {
+    console.log("template" + templateName);
+    const stylesPath = `views/partials/${templateName}/styles`;
+    const file = `${stylesPath}/main.scss`;
+    if (fs.existsSync(file)) {
+      sass.render(
+        {
+          file,
+          includePaths: [stylesPath],
+          outputStyle: 'compressed'
+        },
+        (err, result) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          fs.writeFileSync(path.join(__dirname, 'static', templateName + '.css'), result.css);
+        }
+      );
+    }
+  }
+
+  wss.on('connection', socket => {
+    const id = uuid();
+    connections.push({ id, socket });
+    socket.on('close', () => {
+      connections = connections.filter(({ id: socketId }) => socketId !== id);
+    });
+  });
+
+}
+
+start()
+
+module.exports = app;

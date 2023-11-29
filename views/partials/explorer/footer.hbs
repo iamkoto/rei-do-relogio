@@ -1,0 +1,222 @@
+<div class="OverLayInstitucionais" style="display:none;">
+  <div class="BoxInstitucionais">
+    {{> explorer/views/partials/institutional}}
+  </div>
+</div>
+
+<!-- Apps - Contador -->
+{{> explorer/views/apps/ms-apps-countdown}}
+
+<!-- Apps - Category Feed -->
+<!--{{> explorer/views/apps/ms-apps-categoryFeed}}-->
+
+<!-- Grid de Banners --> 
+<!--{{> explorer/views/apps/ms-apps-grid__banners}}-->
+
+<!-- Grid de Banners --> 
+{{> explorer/views/apps/ms-apps-bulletSlick}} 
+
+
+<div class="payment__container">
+  <ul class="payment__itens">
+    <li class="payment__item">
+      <img class="payment__item-img" src="https://i.imgur.com/wp08DgJ.png" alt="Pagamento" loading="lazy" />
+      <span class="payment__item-text">Pagamento cômodo <br> e seguro</span>
+    </li>
+    <li class="payment__item">
+      <img class="payment__item-img" src="https://i.imgur.com/JeXOFii.png" alt="Cartão" loading="lazy" />
+      <span class="payment__item-text">Pague parcelado</span>
+    </li>
+    <li class="payment__item">
+      <img class="payment__item-img" src="https://i.imgur.com/C3wvDwe.png" alt="Boleto" loading="lazy" />
+      <span class="payment__item-text">À vista no boleto<br>bancário</span>
+    </li>
+    <li class="payment__item">
+      <img class="payment__item-img" src="https://i.imgur.com/XaMn4nb.png" alt="Pix" loading="lazy"/>
+      <span class="payment__item-text">Mais meios de<br> pagamento</span>
+    </li>
+  </ul>
+</div>
+
+<footer class="legend-footer-contact-container">
+  <div class="legend-footer-contact">
+    <div class="legend-footer-contact-logo">
+      <div class="footer-logo">
+          <a class="nav-default-header__logo" href="/" id="logo-wrapper">
+            {{> explorer/views/partials/logo-footer}}
+          </a>
+      </div>
+      <div class="legend-footer__social-media hide-mobile">
+        <h3 class="legend-footer__title" style="margin: 13px 0;">Siga-nos</h3>
+          {{#each socialNetworks}}
+          <a href="{{url}}" target="_blank" class="header--custom-svg header--svg" rel="noopener noreferrer nofollow">
+            {{> (concat 'explorer/views/partials/icons/' (lookup . 'name'))}}
+          </a>
+          {{/each}}
+          <a href="#" target="_blank" class="header--custom-svg header--svg" rel="noopener noreferrer nofollow">
+            {{> explorer/views/partials/icons/linkedin}}
+          </a> 
+      </div>
+    </div>
+    <div class="nav-bounds nav-bounds--contact">
+      <div class="legend-footer__contact-col legend-list--spacing">
+        <h3 class="legend-footer__title">Institucional</h3>
+        <ul class="legend-footer__contact header--custom-border">
+          <li>
+            <a class="header--custom-text" href="/quem-somos">
+              <span>Quem Somos</span>
+            </a>
+          </li>
+          <li>
+            <a class="header--custom-text" href="/p/como-comprar">
+              <span>Como Comprar</span>
+            </a>
+          </li>
+          <li>
+            <a class="header--custom-text" href="https://www.mercadolivre.com.br/ajuda/5253" target="_blank">
+              <span>Trocas e Devoluções</span>
+            </a>
+          </li>
+          <li>
+            <a class="header--custom-text" href="/p/privacidade">
+              <span>Políticas de Privacidade</span>
+            </a>
+          </li>
+        </ul>
+        <div class="footer-arrow__mobile">{{> explorer/views/partials/icons/arrow}}</div>
+      </div>
+    </div>
+    <div class="nav-bounds nav-bounds--contact">
+      <div class="legend-footer__contact-col legend-list--spacing">
+        <h3 class="legend-footer__title">Minha Conta</h3>
+        <ul class="legend-footer__contact header--custom-border">
+          <li>
+            <a class="header--custom-text" href="https://www.mercadolivre.com.br/hub-engine/hubs/my-profile">
+              <span>Login</span>
+            </a>
+          </li>
+          <li>
+            <a class="header--custom-text" href="https://www.mercadolivre.com.br/hub-engine/hubs/my-profile#menu-user">
+              <span>Conta</span>
+            </a>
+          </li>
+          <li>
+            <a class="header--custom-text" href="https://myaccount.mercadolivre.com.br/purchases/list#menu-user">
+              <span>Meus Pedidos</span>
+            </a>
+          </li>
+          <li>
+            <a class="header--custom-text" href="/gz/cart">
+              <span>Meu Carrinho</span>
+            </a>
+          </li>
+        </ul>
+        <div class="footer-arrow__mobile">{{> explorer/views/partials/icons/arrow}}</div>
+      </div>
+    </div>
+    <div class="nav-bounds nav-bounds--contact nav-bounds--contact__fale">
+      <div class="legend-footer__contact-col legend-list--spacing">
+        <h3 class="legend-footer__title">Fale Conosco</h3>
+        <ul class="legend-footer__contact header--custom-border talk-to__flex">
+          {{#if showEmail}}
+          <li>
+            <a class="header--custom-text" itemprop="email" href="mailto:{{email}}" rel="nofollow">
+              {{> explorer/views/partials/icons/email}}
+              <span>{{email}}</span>
+            </a>
+          </li>
+          {{/if}}
+          {{#if showPhone}}
+          <li>
+            <a class="header--custom-text" itemprop="telephone" href="tel:{{phone.raw}}" rel="nofollow">
+              {{> explorer/views/partials/icons/phone}}
+              <span>{{phone.formatted}}</span>
+            </a>
+          </li>
+          {{/if}}
+          {{#if showPhone}}
+          <li>
+            <a class="header--custom-text" itemprop="telephone" href="#" rel="nofollow">
+              {{> explorer/views/partials/icons/whatsapp}}
+              <span>(21) 99998-1312</span>
+            </a>
+          </li>
+          {{/if}}          
+          {{!-- <li>
+              <span class="header--custom-text" style="line-height:20px;font-size: 13px">R. Sd. Gentil Guimarães, 45, <br> Parque Novo Mundo, <br> São Paulo - SP, <br> CEP - 02.144-010 </span>
+          </li> --}}
+          
+        </ul>
+      <div class="footer-arrow__mobile">{{> explorer/views/partials/icons/arrow}}</div>
+      </div>
+
+    </div>
+    <div class="legend-footer__social-media hide-desktop">
+        <h3 class="legend-footer__title" style="margin: 13px 0;">Siga-nos</h3>
+          {{#each socialNetworks}}
+          <a href="{{url}}" target="_blank" class="header--custom-svg header--svg" rel="noopener noreferrer nofollow">
+            {{> (concat 'explorer/views/partials/icons/' (lookup . 'name'))}}
+          </a>
+          {{/each}}
+          <a href="#" target="_blank" class="header--custom-svg header--svg" rel="noopener noreferrer nofollow">
+            {{> explorer/views/partials/icons/linkedin}}
+          </a> 
+    </div>
+    <div class="nav-bounds nav-bounds--contact">
+      <div class="legend-footer__contact-col">
+        <h3 class="legend-footer__title">Segurança</h3>
+        <ul class="legend-footer__payment">
+          <li>
+            <a href="https://transparencyreport.google.com/safe-browsing/search?url=https:%2F%2Fwww.planetafogao.com.br" target="_blank">
+              <img style="width:130px" src="https://i.imgur.com/GBzmn2T.png" alt="Safe Browsing Google" title="Safe Browsing Google" loading="lazy">
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="legend-footer__contact-col legend-footer__contact-payment">
+        <h3 class="legend-footer__title">Pagamento</h3>
+        <img style="margin-top:15px;width:auto;" src="https://i.imgur.com/MIk1DQU.png" title="Mercado Pago" alt="Mercado Pago" loading="lazy" />
+        <ul class="legend-footer__payment">
+          <li>
+            <img class="payment-icon" src="https://i.imgur.com/d9CUAiQ.png" alt="Visa" loading="lazy" />
+          </li>
+          <li>
+            <img class="payment-icon" src="https://i.imgur.com/TSm3dOJ.png" alt="Mastercad" loading="lazy" />
+          </li>
+          <li>
+            <img class="payment-icon" src="https://i.imgur.com/3HgYJDP.png" alt="Hipercard" loading="lazy" />
+          </li>
+          <li>
+            <img class="payment-icon" src="https://i.imgur.com/rn9qlep.png" alt="Elo" loading="lazy" />
+          </li>
+          <li>
+            <img class="payment-icon" src="https://i.imgur.com/xXRFs84.png" alt="American Expresss" loading="lazy" />
+          </li>
+          <li>
+            <img class="payment-icon" src="https://i.imgur.com/JJLGS7h.png" alt="Mercado Livre" loading="lazy" />
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+<div class="legend-footer-info">
+  <div class="copy__container">
+      <p>© Rei das Horas - Todos os direitos reservados <br>William José Da Costa  - CNPJ: 51.948.072/0001-04 <br>Rua João Volpe, 950 - Casa 02 - Butiatuvinha - CEP: 82.320-300 - Curitiba/PR</p>      
+  </div>
+  <div class="nav-footer__icons_generals">
+    <a href="{{linkToMShopsLandingPage}}" target="_blank" class="legend-footer-info__brand header--custom-text" title="Mercado Shops">
+      {{> explorer/views/partials/icons/mshops}}
+    </a>
+    <a href="https://benova.ag" target="_blank" class="legend-footer-info__brand header--custom-text">
+      {{> explorer/views/partials/icons/benova}}
+    </a>
+  </div>
+</div>
+
+{{> explorer/views/benova-scripts}}

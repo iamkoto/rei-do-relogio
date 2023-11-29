@@ -1,0 +1,195 @@
+
+
+<script>
+    // Abrir e fechar o topo no scroll
+    $(window).scroll(function() {
+        if ($(this).scrollTop()>10)
+        {
+            $('.header-wrapper').addClass('scroll');
+        }
+        else
+        {
+            $('.header-wrapper').removeClass('scroll');
+        }
+    });
+
+    // Carrossel de informações
+    $('.payment__itens').slick({
+        dots: false,
+        infinite: true,
+        arrows: false,
+        autoplay: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+
+        responsive: [
+            {
+            breakpoint: 1025,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+            }
+            },
+            {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+            }
+        ],
+    });
+
+    // Carrossel de Categorias
+    $('.bullet-items').slick({
+        dots: false,
+        infinite: true,
+        arrows: true,
+        nextArrow: '<svg class="category-feed-arrow__next" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="40" height="45" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="m16 1a15 15 0 1 0 15 15 15.017 15.017 0 0 0 -15-15zm4.29 15.747-5.625 5c-.937.832-2.312-.622-1.33-1.494l4.785-4.253-4.785-4.253a1 1 0 0 1 1.33-1.494l5.625 5a1.015 1.015 0 0 1 0 1.494z" fill="#D5A330" data-original="#000000" class=""></path></g></svg>',
+        prevArrow: '<svg class="category-feed-arrow__prev" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="40" height="45" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="m16 1a15 15 0 1 0 15 15 15.017 15.017 0 0 0 -15-15zm4.29 15.747-5.625 5c-.937.832-2.312-.622-1.33-1.494l4.785-4.253-4.785-4.253a1 1 0 0 1 1.33-1.494l5.625 5a1.015 1.015 0 0 1 0 1.494z" fill="#D5A330" data-original="#000000" class=""></path></g></svg>',
+        autoplay: false,
+        speed: 300,
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        responsive: [
+            {
+            breakpoint: 1025,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+            }
+            },
+            {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            }
+            }
+        ],
+    });
+    
+    // Informações de Pagamento
+    setTimeout(function() {
+        if ( $( ".payment-data.MLB" ).length ) {
+
+            $( ".payment-data.MLB" ).parent().append( $('.payment__container') );
+        }
+
+    }, 2000);
+
+
+    // Abrir e fechar Rodapé
+
+    $(".legend-footer__contact-col").on( "click", function() {
+        $(this).toggleClass('open__footer');
+    });
+
+    // Apresentar Institucional
+    $(function(){
+
+      var pathname = window.location.pathname;
+      console.log(pathname);
+
+      if (pathname == "/quem-somos"){      
+        $('.nav-main-content').hide();
+        $('.ui-search-rescue').hide();
+        $('.category-feed').hide();
+        $('.counter').hide();
+        $('#bullet-items').hide();        
+        $('.OverLayInstitucionais').show();
+
+        console.log('Estou na página SOBRE');      
+
+      } else if (pathname == "/"){
+
+        setTimeout(function() {
+            // Posicionamento do Busque por Categoria
+                $(function () {
+                    $('.section-text:contains("Compre por Departamento")').each(function () {
+                        $(this).append($('#category-feed'));
+                        $('.section-text__container').hide();
+                    });
+                });
+            // Fim Posicionamento do Busque por Categoria
+
+           // Posicionamento grid - bullets
+                $(function () {
+                    $('.section-text:contains("Banner Bullets")').each(function () {
+                        $(this).append($('#bullet-items'));
+                        $('.section-text__container').hide();
+                    })
+                })
+            // Fim do posicionamento grid -bullets
+
+            
+
+            }, 1000);
+
+        console.log('Estou na Home');  
+
+      } else {
+
+        $('.counter').hide();
+        $('.category-feed').hide();
+        $('#bullet-items').hide();   
+        console.log('Estou na Loja');  
+
+      }
+
+    });
+
+    setTimeout(function() {
+        $('.section__sub-header').remove();
+    }, 300);
+
+
+  
+   
+</script>
+
+<script>
+    // Função para executar o código quando o elemento for alterado
+function executarCodigo() {
+  // Selecione o elemento
+  const $elemento = $('.mshops-recommendations-wrapper .grid-container:nth-child(2) .ui-item__wrapper:first-child a');
+
+  // Verifique se o elemento existe
+  if ($elemento.length) {
+    // Defina o atributo href do link
+    $elemento.attr('href', '/nossos-produtos');
+
+    // Substitua o elemento pelo link
+    $elemento.replaceWith($elemento);
+
+    // Parar de observar as alterações quando o código for executado
+    observer.disconnect();
+  }
+}
+
+// Selecione o elemento pai do elemento que você deseja observar
+const elementoPai = $('.mshops-recommendations-wrapper .grid-container:nth-child(2)')[0];
+
+// Crie um MutationObserver para observar as alterações no DOM
+const observer = new MutationObserver(function(mutationsList) {
+  // Verifique todas as mutações ocorridas
+  for (let mutation of mutationsList) {
+    // Verifique se o tipo de mutação é a adição de nós
+    if (mutation.type === 'childList') {
+      // Execute o código quando o elemento for alterado
+      executarCodigo();
+    }
+  }
+});
+
+// Configure as opções do MutationObserver
+const observerOptions = {
+  childList: true, // Observar alterações nos nós filhos
+  subtree: true // Observar alterações em toda a subárvore
+};
+
+// Comece a observar as alterações no elemento pai
+observer.observe(elementoPai, observerOptions);
+
+</script>

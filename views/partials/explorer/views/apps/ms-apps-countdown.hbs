@@ -1,0 +1,266 @@
+<section class="counter">
+    <div class="counter-content">
+        <div class="counter-titles">
+            <p class="counter-title">Ofertas da semana</p>
+            <p class="counter-subtitle">Super ofertas da semana por tempo limitado</p>
+        </div>
+
+        <div class="counter-items">
+            <div class="counter-items__item">
+                <p class="counter-number" id="day"></p>
+                <p class="counter-text">dias</p>
+            </div>
+            <div class="counter-items__item">
+                <p class="counter-number" id="hour"></p>
+                <p class="counter-text">horas</p>
+            </div>
+            <div class="counter-items__item">
+                <p class="counter-number" id="minute"></p>
+                <p class="counter-text">minutos</p>
+            </div>
+            <div class="counter-items__item">
+                <p class="counter-number" id="second"></p>
+                <p class="counter-text">segundos</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.counter {
+    width: 100%;
+}
+
+.counter-content {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-sizing: border-box;
+}
+@media(min-width: 1026px) {
+    .counter-content {
+        padding: 45px 0;
+    }
+}
+@media(max-width: 1025px) {
+    .counter-content {
+        flex-direction: column;
+        padding: 20px 15px;
+    }
+}
+
+.counter-titles {
+    display: flex;
+    align-items: center;
+}
+@media(max-width: 1025px) {
+    .counter-titles {
+        flex-direction: column;
+    }
+}
+
+.counter-title {
+    font-weight: 400;
+    color: #ffffff;
+}
+@media(min-width: 1026px) {
+    .counter-title {
+        font: normal normal normal 40px/49px Montaga;
+    }
+}
+@media(max-width: 1025px) {
+    .counter-title {
+        font-size: 30px;
+        line-height: 30px;
+        text-align: center;
+    }
+}
+
+.counter-subtitle {
+    color: #ffffff;
+    font-weight: 300;
+    font: normal normal 300 20px/25px 'Open Sans';
+}
+@media(min-width: 1026px) {
+    .counter-subtitle {
+        font-size: 20px;
+        line-height: 24px;
+        max-width: 255px;
+        border-left: 3px solid #D5A330;
+        padding-left: 10px;
+        margin-left: 10px;
+    }
+}
+@media(max-width: 1025px) {
+    .counter-subtitle {
+        font-size: 20px;
+        line-height: 25px;
+        margin: 20px 0 0 0;
+        text-align: center;
+    }
+}
+
+.counter-subtitle__bold {
+    font-weight: bold;
+}
+
+.counter-items {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+    flex: 1;
+}
+@media(max-width: 1025px) {
+    .counter-items {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+.counter-number {
+    font: normal normal 800 38px/52px 'Open Sans';
+    color: #ffffff;
+    text-align: center;
+    border: 2px solid #D5A330;
+    border-radius: 5px;
+}
+@media(min-width: 1026px) {
+    .counter-number {
+        font: normal normal bold 38px/51px Titillium Web;
+        padding: 10px;
+        width: 60px;
+        margin-bottom: 10px;
+    }
+}
+@media(max-width: 1025px) {
+    .counter-number {
+        font-size: 29px;
+        line-height: 40px;
+        padding: 7px;
+        width: 40px;
+        margin-bottom: 10px;
+    }
+}
+
+.counter-text {
+    font: normal normal 300 16px/18px 'Open Sans';
+    color: #ffffff;
+    text-align: center;
+}
+@media(min-width: 1026px) {
+    .counter-text {
+        font-size: 16px;
+        line-height: 16px;
+    }
+}
+@media(max-width: 1025px) {
+    .counter-text {
+        font-size: 12px;
+        line-height: 12px;
+    }
+}
+</style>
+
+<script>
+        // Obtenha o texto que contém a data do elemento HTML
+    var data_texto = $(".component-wrapper:eq(4) .section-header__title--base").text();
+
+    // Extraia o dia, mês e ano do texto da data
+    var partes_data = data_texto.trim().split(" de ");
+    var dia = partes_data[0];
+    var mes = partes_data[1];
+    var ano = partes_data[2];
+
+    // Traduza o nome do mês para o formato abreviado em inglês
+    switch (mes) {
+    case "janeiro":
+        mes = "Jan";
+        break;
+    case "fevereiro":
+        mes = "Feb";
+        break;
+    case "março":
+        mes = "Mar";
+        break;
+    case "abril":
+        mes = "Apr";
+        break;
+    case "maio":
+        mes = "May";
+        break;
+    case "junho":
+        mes = "Jun";
+        break;
+    case "julho":
+        mes = "Jul";
+        break;
+    case "agosto":
+        mes = "Aug";
+        break;
+    case "setembro":
+        mes = "Sep";
+        break;
+    case "outubro":
+        mes = "Oct";
+        break;
+    case "novembro":
+        mes = "Nov";
+        break;
+    case "dezembro":
+        mes = "Dec";
+        break;
+    default:
+        console.log("Mês inválido");
+        break;
+    }
+
+    // Crie um objeto Date com a data extraída
+    var target_date = new Date(Date.parse(mes + ' ' + dia + ', ' + ano));
+
+    // Exiba a data em português no formato dia/mês/ano
+    var data_formatada = target_date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'numeric', year: 'numeric' });
+
+    // Imprima a data formatada no console
+    console.log(data_formatada);
+
+    // Defina a função de contagem regressiva
+    var contador = setInterval(function () {
+    var current_date = new Date().getTime();
+    var segundos_f = (target_date - current_date) / 1000;
+
+        if (segundos_f <= 0) {
+            // Se a data alvo tiver sido alcançada, pare a contagem regressiva e oculte o elemento .counter-items
+            clearInterval(contador);
+            $(".counter-items").hide();
+        } else {
+            // Caso contrário, continue a contagem regressiva e atualize os elementos da página
+            var dias = parseInt(segundos_f / 86400);
+            segundos_f = segundos_f % 86400;
+
+            var horas = parseInt(segundos_f / 3600);
+            segundos_f = segundos_f % 3600;
+
+            var minutos = parseInt(segundos_f / 60);
+            var segundos = parseInt(segundos_f % 60);
+
+            document.getElementById('day').innerHTML = dias.toString().replace("-", "");
+            document.getElementById('hour').innerHTML = horas.toString().replace("-", "");
+            document.getElementById('minute').innerHTML = minutos.toString().replace("-", "");
+            document.getElementById('second').innerHTML = segundos.toString().replace("-", "");
+        }
+    }, 1000);
+
+</script>
+
+<script>
+    jQuery(window).on("load", ()=>{
+        setTimeout(()=>{
+            $(".counter").prependTo(".component-wrapper:eq(4) .row.container");
+        },500)
+    })
+</script>

@@ -1,0 +1,259 @@
+<style>
+.institunional__container {
+    display: grid;
+    grid-template-areas: 'item1''colright''item2''item3''item4''item5';
+    gap: 30px;
+    margin-top: 11rem;
+}
+
+.accordion.active .accordion-title {
+    margin-bottom: 15px;
+}
+
+@media screen and (min-width: 1026px) {
+    .institunional__container{
+        grid-template-areas: 'item1 colright''item2 .''item3 .''item4 .''item5 .';
+        gap: 35px;
+        grid-template-columns: 1fr 1fr;
+    }    
+    .col-right {
+        position: sticky;
+        top: 130px;
+        right: 0;
+    }
+}
+.col-right {
+  box-shadow: 0px 0px 15px #0000001A;
+  border-radius: 10px;
+  padding: 20px;
+}
+.item-2, .item-3, .item-4, .item-5 {  
+  background-color: #898989;
+  color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+}
+.col-right{
+    grid-area: colright;
+}
+.item-1{
+    grid-area: item1;
+}
+.item-2{
+    grid-area: item2;
+    background-color: #000000;
+}
+
+.item-3{
+    grid-area: item3;    
+    background-color: #000000;
+}
+.item-4{
+    grid-area: item4;
+    background-color: #000000;
+}
+.item-5{
+    grid-area: item5;
+    background-color: #000000;
+}
+.item-image{
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.item-title{
+    font: normal normal 600 41px/61px Montaga;
+    margin-bottom: 35px;
+}
+
+
+.item-content{
+    font: normal normal normal 20px/30px 'Open Sans';
+    text-align: left;
+}
+
+@media screen and (max-width: 1025px) {
+  .item-title{
+    font-size: 22px;
+    margin-bottom: 10px;
+  } 
+  .item-content{
+    font-size: 16px;
+  }
+}
+.accordion {
+  color: #444;
+  cursor: pointer;
+  padding: 10px 0;
+  margin: 35px 0;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  position: relative;
+  border-bottom: 1px solid #dedede;
+}
+.accordion:first-of-type{
+    margin-top: 0;
+}
+.accordion:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background-color: #D5A330;
+}
+.accordion:before {
+  content: '';
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNSAxNSI+CiAgPGRlZnM+CiAgICA8Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aCI+CiAgICAgIDxyZWN0IGlkPSJSZXTDom5ndWxvXzExMCIgZGF0YS1uYW1lPSJSZXTDom5ndWxvIDExMCIgd2lkdGg9IjE1IiBoZWlnaHQ9IjE1IiBmaWxsPSIjMjUyNTI1IiBzdHJva2U9IiM3MDcwNzAiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPC9jbGlwUGF0aD4KICA8L2RlZnM+CiAgPGcgaWQ9IsONY29uZV9TbGlkZXIiIGRhdGEtbmFtZT0iw41jb25lIFNsaWRlciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTUgMTUpIHJvdGF0ZSgxODApIiBjbGlwLXBhdGg9InVybCgjY2xpcC1wYXRoKSI+CiAgICA8cGF0aCBpZD0iY2hldnJvbi11cCIgZD0iTTAsMCw1Ljc1MSw1Ljc1MSwxMS41LDAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEuNzY5IDQuODIzKSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMWU0MDY5IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPgogIDwvZz4KPC9zdmc+Cg==");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  color: #777;
+  font-weight: bold;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  transform: rotate(180deg);
+  transition: ease-in-out .3s;
+  filter: brightness(0);
+}
+.active:before {
+  transform: rotate(0);
+}
+.panel {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.accordion-title{
+    font: normal normal 600 18px/27px 'Open Sans';
+    color: #000;
+    text-transform: uppercase;
+}
+.accordion-content,
+.panel p,
+.panel ul,
+.panel li{
+    font: normal normal normal 13px/16px 'Open Sans';
+    color: #6D6E70;
+    text-align: left;
+}
+
+.panel h3,
+.panel h4,
+.panel h5,
+.panel h6{
+  font: normal normal normal 16px 'Open Sans';
+  padding: 20px 0 20px;
+}
+
+.institucional-text__info li{
+  padding-left: 25px;  
+}
+
+.institucional-text__info p{
+  padding-bottom: 15px;
+}
+
+</style>
+
+<div class="institunional__container">
+  
+    <div class="item-1">
+        <img class="item-image" src="https://i.imgur.com/jXpvH3j.png">
+    </div>
+    <div class="item-2">
+        <h2 class="item-title">Missão</h2>
+        <p class="item-content">A nossa missão vai muito além de entregar os melhores relógios e um atendimento único,
+queremos entregar uma experiência inesquecível.</p>
+    </div>
+    <div class="item-3">
+        <h2 class="item-title">Visão</h2>
+        <p class="item-content">Transformando horas em momentos inesquecíveis.</p>
+    </div>
+    <div class="item-4">
+        <h2 class="item-title">Valores</h2>
+        <p class="item-content">Tornar esses momentos inesquecíveis é o que nos motiva, pois estaremos em momentos como
+o nascimento de um filho, um casamento, uma festa de aniversário, o contar dos minutos para
+a virada de um ano.</p>
+    </div>
+
+  <div class="col-right">
+    <div class="accordion">
+      <h3 class="accordion-title">Quem Somos</h3>
+        <div class="panel">
+            <p class="accordion-content">
+              Transformando horas em momentos inesquecíveis. <br>
+              Esse é o propósito da Rei das Horas. A nossa paixão pelo mundo dos relógios nos fez entender
+              que olhamos constantemente para um relógio ao longo do dia, seja para um compromisso,
+              seja para ir ou sair do trabalho, seja para aquele momento especial de encontrar amigos e
+              família. <br>
+              Tornar esses momentos inesquecíveis é o que nos motiva, pois estaremos em momentos como
+              o nascimento de um filho, um casamento, uma festa de aniversário, o contar dos minutos para
+              a virada de um ano. <br>
+              Cada relógio é cuidadosamente escolhido para que você possa encontrar o modelo que mais
+              combina com seu estilo e com sua necessidade. O que queremos é que você possa desfrutar
+              deste momento de escolha com leveza e simplicidade. <br>
+              A nossa missão vai muito além de entregar os melhores relógios e um atendimento único,
+              queremos entregar uma experiência inesquecível. <br>
+            </p> 
+        </div>
+    </div>
+    <div class="accordion">
+      <h3 class="accordion-title">Onde Estamos</h3>
+        <div class="panel">
+            <p class="accordion-content">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3604.076636682277!2d-49.35447012461153!3d-25.402245177579555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRua%20Jo%C3%A3o%20Volpe%2C%20950%20-%20Casa%2002%20-%20Butiatuvinha%20-%20CEP%3A%2082.320-300%20-%20Curitiba%2FPR!5e0!3m2!1spt-BR!2sbr!4v1699411901261!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </p>
+        </div>
+    </div>
+    <div class="accordion">
+      <h3 class="accordion-title">Como Comprar</h3>
+        <div class="panel">
+            <p class="accordion-content">Todas as informações de compra poderão ser encontradas <a href="/p/como-comprar">aqui</a>
+        </div>
+    </div>
+    <div class="accordion">
+      <h3 class="accordion-title">Segurança e Privacidade</h3>
+        <div class="panel">
+          <p class="accordion-content">
+           Veja nossa política de privacidade <a href="/p/privacidade">aqui</a>
+          </p>    
+        </div>
+    </div>
+    <div class="accordion">
+      <h3 class="accordion-title">Nossos Contatos</h3>
+        <div class="panel">
+            <p class="accordion-content">Horário de atendimento de Seg a Sex das 09:00hs às 18:00hs <br><br> Telefone: (14) 99811-1288.<br><br> E-Mail: sac@reidashoras.com.br</p></p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.children[1];
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+
+</script>
+

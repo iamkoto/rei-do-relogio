@@ -1,0 +1,73 @@
+{{#if is_transparent}}
+  <div class="header-wrapper header-wrapper--fixed {{headerAdditionalClasses}} header-wrapper--transparent haeder-wrapper-with-transparent" id="header-wrapper" data-ms-theme="legend">
+{{else}}
+  <div class="header-wrapper header-wrapper--fixed {{headerAdditionalClasses}}" id="header-wrapper" data-ms-theme="legend">
+{{/if}}
+
+  {{!-- {{#if flash.enabled}}
+    {{> components/flash}}
+  {{/if}} --}}
+
+  {{!-- {{> explorer/topHeader}} --}}
+
+<!-- Scripts Head -->
+{{> explorer/views/scripts-head}}
+
+  {{> components/cookieDisclaimer}}
+  <header role="banner" class="nav-default-header" itemtype="http://schema.org/Store" itemid="#this" itemscope="">
+    <div class="nav-default-header__bounds nav-default__top">
+      <!-- Logo -->
+      <div class="nav-default-header__title">
+        <div class="nav-button__container open-menu hide-desktop" id="open-menu">
+          <span class="nav-button">
+            {{> explorer/views/partials/menu}}
+          </span>
+        </div>
+
+        {{#if logo}}
+          <a class="nav-default-header__logo" href="/" id="logo-wrapper">
+            <img class="nav-header__image" src="{{logo}}" alt="{{shop.name}}" itemprop="logo" />
+          </a>
+        {{else}}
+           <a class="nav-default-header__logo" href="/" id="logo-wrapper">
+            {{> explorer/views/partials/logo}}
+          </a>
+        {{/if}}
+      </div>
+      {{> explorer/views/partials/search-form}}
+      <!-- Icons -->
+      <ul class="nav-icons__group">
+        {{#if  menu_labels.search}}
+          <span class="nav-default-header__menu-labels nav-default-menu-icons header--custom-text">{{menu_labels.search}}</span>
+        {{/if}}
+        <li class="nav-button__container mid-icon">
+          <a class="nav-button__link" href="https://myaccount.mercadolivre.com.br/purchases/list#menu-user" title="Carrito">
+            {{> explorer/views/partials/user}}
+            <span class="nav-button hideMobile">
+              Olá faça seu login <br>
+              ou cadastre-se
+            </span>
+          </a>
+        </li>
+        {{#if cart}}
+        <li class="nav-button__container">
+          <a class="nav-button__link" href="{{cart.href}}" title="Carrito" id="nav-cart">
+            <span class="nav-button">
+              {{> explorer/views/partials/cart}}
+            </span>
+          </a>
+        </li>
+
+        {{/if}}
+        {{#if  menu_labels.cart}}
+          <span class="nav-default-header__menu-labels nav-default-menu-icons header--custom-text">{{menu_labels.cart}}</span>
+        {{/if}}
+      </ul>
+    </div>
+    <div class="categories-container">
+      {{> explorer/views/partials/categories}}
+    </div>
+  </header>
+   {{> explorer/views/apps/ms-apps-messageHeader}}
+</div>
+<div id="overlay"></div>

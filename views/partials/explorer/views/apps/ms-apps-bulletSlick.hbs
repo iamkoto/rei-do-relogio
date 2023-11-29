@@ -1,0 +1,172 @@
+<section id="bullet-items">
+    <div class="bullet-items">
+        <div class="bullet-div">
+            <a class="bullet-item" href="/technos_DisplayType_G">
+                <div class="overlay">
+                <p>
+                    Technos
+                </p>
+                </div>
+                <img src="https://i.imgur.com/HVoMZQq.png" alt="Technos">
+            </a>   
+        </div>
+        <div class="bullet-div">
+            <a class="bullet-item" href="/casio_DisplayType_G">
+                <div class="overlay">
+                <p>
+                    Casio
+                </p>
+                </div>
+                <img src="https://i.imgur.com/2PlWtjk.png" alt="Casio">
+            </a>   
+        </div>
+        <div class="bullet-div">
+            <a class="bullet-item" href="/oslo_DisplayType_G">
+                <div class="overlay">
+                <p>
+                    Oslo
+                </p>
+                </div>
+                <img src="https://i.imgur.com/cecngIF.png" alt="Oslo">
+            </a>   
+        </div>
+        <div class="bullet-div">
+            <a class="bullet-item" href="/x-watch_DisplayType_G">
+                <div class="overlay">
+                <p>
+                    X-Watch
+                </p>
+                </div>
+                <img src="https://i.imgur.com/V4SgPO3.png" alt="X-Watch">
+            </a>   
+        </div>
+        <div class="bullet-div">   
+            <a class="bullet-item" href="/champion_DisplayType_G">
+                <div class="overlay">
+                <p>
+                    Champion
+                </p>
+                </div>
+                <img src="https://i.imgur.com/Jk8JYms.png" alt="Champion">
+            </a>   
+        </div>
+        <div class="bullet-div">
+            <a class="bullet-item" href="/condor_DisplayType_G">
+                <div class="overlay">
+                <p>
+                    Condor
+                </p>
+                </div>
+                <img src="https://i.imgur.com/GoBv13M.png" alt="Condor">
+            </a>     
+        </div>
+    </div>
+</section>
+
+<style>
+    .bullet-item .overlay {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background-color: #ffffff;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        z-index: 1;
+    }
+
+    .bullet-div {
+        text-align: center;
+        text-align: -webkit-center;
+    }
+    @media screen and (min-width: 1026px) {
+        #bullet-items{
+            max-width: 1200px !important;
+            width: calc(100% - 20px) !important;
+            margin: 35px auto 0;
+        }
+        .bullet-items{
+            max-width: 1182px;
+            margin: 0 auto;
+        }
+        
+    }
+    .bullet-item {
+        background-color: #e6e6e6;
+        height: 150px;
+        max-width: 150px;
+        border-radius: 50%;
+        position: relative;
+        display: block;
+        margin: 10px;
+        cursor: pointer;
+    }
+    .bullet-item p {
+        text-align: center;
+        margin-top: 0;
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 100%;
+        z-index: 2;
+        font: normal normal 600 16px/24px 'Open Sans';
+        color: #41444B;
+        text-transform: uppercase;
+    }
+    .bullet-item p:hover{
+        color: #661313;
+    }
+    .bullet-item img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        transition: ease-in-out .3s;
+        width: 100px;
+        height: 100px;
+    }
+    @media screen and (max-width:1025px) {
+        .bullet-item img {
+            width: 70px;
+            height: 70px;
+        }
+    }
+    .bullet-item:hover img {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    .bullet-item .overlay {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 100%;
+        height: 25px;
+        background-color: #fff;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        z-index: 1;
+    }
+    .bullet-items .category-feed-arrow__prev{
+        left: -45px;       
+        transform: rotate(180deg); 
+    }
+
+    .bullet-items .category-feed-arrow__next{
+        right: -45px;       
+    }
+    @media (max-width: 1025px) {
+        .bullet-items .category-feed-arrow__prev{
+            left: 0px;       
+        }
+        .bullet-items .category-feed-arrow__next{
+            right: 0px;       
+        }
+    }
+    .bullet-items .category-feed-arrow__prev,
+    .bullet-items .category-feed-arrow__next{
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        z-index: 9;
+    }
+</style>
